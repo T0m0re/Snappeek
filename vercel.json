@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/screenshot.ts": {
+        "app/api/screenshot/route.ts": {
         "maxDuration": 15
       }
     }
