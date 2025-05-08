@@ -42,8 +42,12 @@ export async function POST(req: NextRequest) {
 
     const base64 = Buffer.from(screenshot as Buffer).toString("base64");
     return NextResponse.json({ image: base64 });
-  } catch (error: any) {
-    console.error("Screenshot error:", error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Screenshot error:", error.message);
+    } else {
+      console.error("Screenshot error:", error);
+    }
     return NextResponse.json({ error: "Screenshot failed" }, { status: 500 });
   }
 }
