@@ -26,10 +26,10 @@ export async function POST(req: NextRequest) {
       // Production (Vercel): Use chrome-aws-lambda
       const chromium = await import("chrome-aws-lambda");
       browser = await puppeteer.launch({
-        args: chromium.args,
+        args: chromium.default.args,
         defaultViewport: { width: 1280, height: 720 },
-        executablePath: await chromium.executablePath,
-        headless: chromium.headless,
+        executablePath: await chromium.default.executablePath,
+        headless: true,
       });
     }
 
