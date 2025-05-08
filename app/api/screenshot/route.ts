@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   try {
     const puppeteer = isDev
       ? await import("puppeteer")
-      : await import("puppeteer-core");
+      : await import("puppeteer");
 
     let browser;
 
